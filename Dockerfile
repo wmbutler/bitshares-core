@@ -18,14 +18,8 @@ libssl-dev g++
 RUN cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
 RUN make
 
-# RUN mkdir /data_dir
-# ADD docker/default_config.ini /default_config.ini
-# ADD docker/launch /launch
-# RUN chmod a+x /launch
-# VOLUME /data_dir
+RUN mkdir /data_dir
+ADD docker/default_config.ini /default_config.ini
+VOLUME /data_dir
 
-# EXPOSE 8090 9090
-
-# ENTRYPOINT ["/launch"]
-
-# Build inside Docker image
+EXPOSE 8090 9090
