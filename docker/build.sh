@@ -12,4 +12,5 @@ git submodule sync --recursive
 git submodule update --init --recursive
 
 # Start docker build
-docker build ../
+echo ".git" > .dockerignore
+docker build -t bitshares/base:latest ../
