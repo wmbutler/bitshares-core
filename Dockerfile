@@ -4,11 +4,17 @@
 FROM ubuntu:xenial-20171006
 MAINTAINER Bill Butler <bill@butler.net>
 
-RUN apt update
-RUN apt install -y apt-utils autoconf cmake git libboost-all-dev libssl-dev g++
-
 ADD . /bitshares-core
 WORKDIR /bitshares-core
+
+RUN apt update && apt install -y \
+apt-utils \
+autoconf \
+cmake \
+git \
+libboost-all-dev \
+libssl-dev g++
+
 RUN cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
 RUN make
 
